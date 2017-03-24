@@ -1,0 +1,25 @@
+{
+  "name": "help-desk-api",
+  "version": "0.0.1",
+  "description": "API do Suporte de Usuário da Taller",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "taller",
+    "api",
+    "nodejs",
+    "express",
+    "mongodb",
+    "mongoose"
+  ],
+  "author": "Ednilson Amaral <ednilsonamaral.ti@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.1",
+    "time": "^0.12.0"
+  }
+}
