@@ -187,6 +187,44 @@ Em qualquer rota, se acontecer algum erro durante alguma requisição, a devolu�
 ```
 
 
+### Usuários
+
+#### Modelos
+
+```js  
+```
+
+```js  
+```
+
+```js  
+```
+
+```js  
+```
+
+```js  
+```
+
+```js  
+```
+
+```js  
+```
+
+```js  
+```
+
+```js  
+```
+
+```js  
+```
+
+```js  
+```
+
+
 ## Schemas
 
 ### Tickets
@@ -205,4 +243,10 @@ Em qualquer rota, se acontecer algum erro durante alguma requisição, a devolu�
 	created: { type: String },
 	updated: { type: String }
 }
+```
+
+
+### Usuários
+
+```js  
 ```

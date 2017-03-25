@@ -12,14 +12,23 @@
     "nodejs",
     "express",
     "mongodb",
-    "mongoose"
+    "mongoose",
+    "passport",
+    "jsonwebtoken",
+    "jwt"
   ],
   "author": "Ednilson Amaral <ednilsonamaral.ti@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^1.0.2",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
+    "jsonwebtoken": "^7.3.0",
+    "lodash": "^4.17.4",
     "mongoose": "^4.9.1",
+    "morgan": "^1.8.1",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
     "time": "^0.12.0"
   }
 }

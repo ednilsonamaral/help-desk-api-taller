@@ -4,12 +4,19 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 const express = require('express'),
 			app = express(),
-			bodyParser = require('body-parser');
+			mongoose = require('mongoose'),
+			bodyParser = require('body-parser'),
+			morgan = require('morgan'),
+			passport = require('passport'),
+			jwt = require('jsonwebtoken');
 
 require('./config/db');
+require('./config/passport')(passport);
 
-app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use(morgan('dev'));
 
 const port = process.env.PORT || 8282;
 
