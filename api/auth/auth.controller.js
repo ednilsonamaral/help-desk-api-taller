@@ -26,7 +26,6 @@ exports.auth = function (req, res) {
 					});
 
 					res.json({ success: true, token: token });
-					// res.json({ success: true, token: 'JWT ' + token });
 				} else {
 					res.json({ success: false, message: 'Senha incorreta!' });
 				}
