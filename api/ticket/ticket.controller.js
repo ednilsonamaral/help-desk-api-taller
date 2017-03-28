@@ -10,40 +10,42 @@ d.toString();
 	// Get all tickets
 exports.index = function (req, res) {
 		Ticket.find(function (err, t) {
-		if (err)
-			res.json({
-			  statusCode: 200,
-			  data: err,
-			  error: true,
-			  status: 'NOK'
+		if (err) {
+			return res.json({
+				statusCode: 200,
+				data: err,
+				error: true,
+				status: 'NOK'
 			});
-
-		res.json({
-			statusCode: 200,
-			data: t,
-			error: false,
-			status: 'OK'
-		});
+		} else {
+			return res.json({
+				statusCode: 200,
+				data: t,
+				error: false,
+				status: 'OK'
+			});
+		}
 	});
 };
 
 	// Get a single ticket by id
 exports.show = function (req, res) {
 			Ticket.findById(req.params.ticket_id, function (err, t) {
-		if (err)
-			res.json({
-			  statusCode: 200,
-			  data: err,
-			  error: true,
-			  status: 'NOK'
+		if (err) {
+			return res.json({
+				statusCode: 200,
+				data: err,
+				error: true,
+				status: 'NOK'
 			});
-
-		res.json({
-			statusCode: 200,
-			data: t,
-			error: false,
-			status: 'OK'
-		});
+		} else {
+			return res.json({
+				statusCode: 200,
+				data: t,
+				error: false,
+				status: 'OK'
+			});
+		}
 	});
 };
 
@@ -58,11 +60,12 @@ exports.create = function (req, res) {
 	t.abertura = new Date();
 	t.fechamento = req.body.fechamento;
 	t.mensagem = req.body.mensagem;
+	t.resposta = req.body.resposta;
 	t.arquivo = req.body.arquivo;
 	t.atendimento = req.body.atendimento;
 	t.status = req.body.status;
 	t.created = d;
-	t.updated = '';
+	t.updated = null;
 
 	t.save(function (err) {
 		if (err) {
@@ -89,42 +92,45 @@ exports.update = function (req, res) {
 	const t = new Ticket();
 
 	Ticket.findById(req.params.ticket_id, function (err, t) {
-		if (err)
-			res.json({
-			  statusCode: 200,
-			  data: err,
-			  error: true,
-			  status: 'NOK'
+		if (err) {
+			return res.json({
+				statusCode: 200,
+				data: err,
+				error: true,
+				status: 'NOK'
 			});
-
+		} else {
 			t.id_usuario = req.body.id_usuario;
 			t.codigo = req.body.codigo;
 			t.categoria = req.body.categoria;
 			t.produto = req.body.produto;
 			t.fechamento = req.body.fechamento;
 			t.mensagem = req.body.mensagem;
+			t.resposta = req.body.resposta;
 			t.arquivo = req.body.arquivo;
 			t.atendimento = req.body.atendimento;
 			t.status = req.body.status;
 			t.updated = d;
 
-		t.save(function (err) {
-			if (err)
-				res.json({
-				  statusCode: 200,
-				  data: err,
-				  error: true,
-				  status: 'NOK'
-				});
-
-			res.json({
-				statusCode: 200,
-				description: 'Ticket atualizado com sucesso!',
-				data: t,
-				error: false,
-				status: 'OK'
+			t.save(function (err) {
+				if (err) {
+					return res.json({
+						statusCode: 200,
+						data: err,
+						error: true,
+						status: 'NOK'
+					});
+				} else {
+					return res.json({
+						statusCode: 200,
+						description: 'Ticket atualizado com sucesso!',
+						data: t,
+						error: false,
+						status: 'OK'
+					});
+				}
 			});
-		});
+		}
 	});
 };
 
@@ -133,20 +139,21 @@ exports.delete = function (req, res) {
 		Ticket.remove({
 			_id: req.params.ticket_id
 	}, function (err, t) {
-		if (err)
-			res.json({
+		if (err) {
+			return res.json({
 				statusCode: 200,
 				data: err,
 				error: true,
 				status: 'NOK'
 			});
-
-		res.json({
-			statusCode: 200,
-			description: 'Ticket deletado com sucesso! bye bye ;)',
-			data: t,
-			error: false,
-			status: 'OK'
-		});
+		} else {
+			return res.json({
+				statusCode: 200,
+				description: 'Ticket deletado com sucesso! bye bye ;)',
+				data: t,
+				error: false,
+				status: 'OK'
+			});
+		}
 	});
 };

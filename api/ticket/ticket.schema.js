@@ -4,12 +4,13 @@ const mongoose = require('mongoose');
 
 const _schema = {
 	id_usuario: { type: String, required: true },
-	codigo: { type: Number, unique: true },
+	codigo: { type: Number, unique: true, required: true },
 	categoria: { type: String, required: true },
 	produto: { type: String, required: true },
 	abertura: { type: Date, default: Date.now },
 	fechamento: { type: Date, default: Date.now },
 	mensagem: { type: String },
+	resposta: { type: String },
 	arquivo: { type: String },
 	atendimento: { type: String },
 	status: { type: String, required: true },
