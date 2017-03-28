@@ -9,7 +9,7 @@ Ao clonar o repositório em seu computador e, antes de tentar rodar a API localm
 * MongoDB;  
 * Nodemon.
 
-Tendo os pacotes supracitados instalados globalmente em seu computador, navegue pelo terminal até a pasta do projeto `./help-desk-api-taller` e execute o seguinte comando no terminal: `npm install`. Isso fará com que seja instalado todas as dependências necessárias para que o projeto funcione normalmente sem erros.  
+Tendo os pacotes supracitados instalados globalmente em seu computador, navegue pelo terminal até o diretório do projeto `./help-desk-api-taller` e execute o seguinte comando no terminal: `npm install`. Isso fará com que seja instalado todas as dependências necessárias para que o projeto funcione normalmente sem erros.  
 
 Para executar o projeto, antes de mais nada, você precisa se certificar que o serviço `mongod` está em execução e aguardando por novas conexões. Pois como trabalhamos com o MongoDB como banco NoSQL em nosso projeto, se faz necessário tê-lo em execução para que o projeto funcione normalmente.
 
@@ -27,6 +27,18 @@ Para testar a API, basta acessá-la via Postman, com o seguinte endereço: http:
 * MongoDB;  
 * Mongoose;  
 * JWT.
+
+
+### Importando Banco de Dados
+
+Antes de continuar, seja realizando testes na API via Postman, ou então utilizar via Dashboard, é necessário importar as **collections** do banco de dados, pois elas já possuem usuário e tickets cadastrados para manipulação na Dashboard e/ou API via Postman.
+
+Para realizar essa importação, basta executar os seguintes comandos no seu termina, dentro do diretório do projeto `./help-desk-api-taller`:
+
+1. `mongoimport --db help-desk-taller --collection users --drop --file users.json`  
+2. `mongoimport --db help-desk-taller --collection tickets --drop --file tickets.json`
+
+Tais comandos não devem ser executados dentro do `mongo`, devem ser executados no terminal comum, dentro do diretório do projeto `./help-desk-api-taller`.
 
 
 ### Usuários
