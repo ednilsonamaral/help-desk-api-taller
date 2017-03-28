@@ -25,7 +25,7 @@ exports.auth = function (req, res) {
 						expiresIn: 28800 // seconds - 8 horas
 					});
 
-					res.json({ success: true, token: token });
+					res.json({ success: true, token: token, id_usuario: user._id });
 				} else {
 					res.json({ success: false, message: 'Senha incorreta!' });
 				}

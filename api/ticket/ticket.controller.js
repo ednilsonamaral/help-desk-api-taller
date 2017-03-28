@@ -51,7 +51,8 @@ exports.show = function (req, res) {
 exports.create = function (req, res) {
 	const t = new Ticket();
 
-	t.codigo = req.body.codigo;
+	t.id_usuario = req.body.id_usuario;
+	t.codigo = Math.floor(Math.random() * 1000) + 40000;
 	t.categoria = req.body.categoria;
 	t.produto = req.body.produto;
 	t.abertura = new Date();
@@ -64,21 +65,22 @@ exports.create = function (req, res) {
 	t.updated = '';
 
 	t.save(function (err) {
-		if (err)
-			res.json({
-			  statusCode: 200,
-			  data: err,
-			  error: true,
-			  status: 'NOK'
+		if (err) {
+			return res.json({
+				statusCode: 200,
+				data: err,
+				error: true,
+				status: 'NOK'
 			});
-
-		res.json({
-			statusCode: 200,
-			description: 'Novo ticket cadastrado com sucesso!',
-			data: t,
-			error: false,
-			status: 'OK'
-		});
+		} else {
+			return res.json({
+				statusCode: 200,
+				description: 'Novo ticket cadastrado com sucesso!',
+				data: t,
+				error: false,
+				status: 'OK'
+			});
+		}
 	});
 };
 
@@ -95,6 +97,7 @@ exports.update = function (req, res) {
 			  status: 'NOK'
 			});
 
+			t.id_usuario = req.body.id_usuario;
 			t.codigo = req.body.codigo;
 			t.categoria = req.body.categoria;
 			t.produto = req.body.produto;

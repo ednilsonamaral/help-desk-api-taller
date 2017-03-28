@@ -3,7 +3,8 @@
 const mongoose = require('mongoose');
 
 const _schema = {
-	codigo: { type: Number },
+	id_usuario: { type: String, required: true },
+	codigo: { type: Number, unique: true },
 	categoria: { type: String, required: true },
 	produto: { type: String, required: true },
 	abertura: { type: Date, default: Date.now },
